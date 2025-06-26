@@ -13,9 +13,23 @@ spring:
 
 server:
   port: 8080
+  servlet:
+    session:
+      timeout: 15m
+  tomcat:
+    connection-timeout: 10s  # how long server waits for client to connect
+    keep-alive-timeout: 15s  # keep-alive timeout after request
+    max-threads: 200
+    max-connections: 10000
+  error:
+    include-stacktrace: never
+    include-message: always
+    whitelabel:
+      enabled: false
 
 springdoc:
   api-docs:
     path: /v3/api-docs
   swagger-ui:
     path: /swagger-ui.html
+
