@@ -1,9 +1,12 @@
 package com.investment.advisor.entity;
 
+import com.investment.advisor.StringListConverter;
 import jakarta.persistence.*;
-        import lombok.*;
+import lombok.*;
 
-        import java.time.LocalDateTime;
+
+import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * ✅ Java 17 + JPA entity for storing investor profile details.
@@ -22,19 +25,24 @@ public class InvestorProfile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "name", nullable = false)
     private String name;
 
-    private int age;
+    @Column(name = "age")
+    private Integer age;
 
-    private double income;
+    @Column(name = "income")
+    private Double income;
 
-    private double savings;
+    @Column(name = "savings")
+    private Double savings;
 
     @Column(name = "risk_tolerance")
     private String riskTolerance; // e.g. "Low", "Medium", "High"
 
+    @Convert(converter = StringListConverter.class)
     @Column(name = "investment_goal")
-    private String investmentGoal; // e.g. "Retirement", "Wealth Building", etc.
+    private List<String> investmentGoal; // e.g. "Retirement", "Wealth Building", etc.
 
     private LocalDateTime createdAt;
 

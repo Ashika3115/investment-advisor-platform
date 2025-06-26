@@ -4,7 +4,7 @@ import com.investment.advisor.entity.InvestorProfile;
 import com.investment.advisor.mapper.InvestorProfileMapper;
 import com.investment.advisor.repository.InvestorProfileRepository;
 import com.investment.advisor.service.InvestorProfileService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,16 +17,11 @@ import java.util.Optional;
  */
 
 @Service
+@RequiredArgsConstructor
 public class InvestorProfileServiceImpl implements InvestorProfileService {
 
     private final InvestorProfileRepository repository;
     private final InvestorProfileMapper mapper;
-
-    @Autowired
-    public InvestorProfileServiceImpl(InvestorProfileRepository repository, InvestorProfileMapper mapper, InvestorProfileMapper mapper1) {
-        this.repository = repository;
-        this.mapper = mapper1;
-    }
 
     @Override
     public InvestorProfile saveProfile(InvestorProfile profile) {
