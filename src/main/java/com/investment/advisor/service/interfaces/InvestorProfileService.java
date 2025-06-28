@@ -1,4 +1,4 @@
-package com.investment.advisor.service;
+package com.investment.advisor.service.interfaces;
 
 import com.investment.advisor.entity.InvestorProfile;
 

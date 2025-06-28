@@ -1,4 +1,4 @@
-package com.investment.advisor.request;
+package com.investment.advisor.dto;
 
 import java.util.List;
 

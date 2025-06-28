@@ -1,6 +1,6 @@
 package com.investment.advisor.entity;
 
-import com.investment.advisor.StringListConverter;
+import com.investment.common.convertor.StringListConverter;
 import jakarta.persistence.*;
 import lombok.*;
 

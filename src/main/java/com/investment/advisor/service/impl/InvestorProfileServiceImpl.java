@@ -3,9 +3,8 @@ package com.investment.advisor.service.impl;
 import com.investment.advisor.entity.InvestorProfile;
 import com.investment.advisor.mapper.InvestorProfileMapper;
 import com.investment.advisor.repository.InvestorProfileRepository;
-import com.investment.advisor.service.InvestorProfileService;
+import com.investment.advisor.service.interfaces.InvestorProfileService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

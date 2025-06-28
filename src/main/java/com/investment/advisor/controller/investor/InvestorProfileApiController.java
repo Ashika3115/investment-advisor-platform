@@ -1,11 +1,11 @@
-package com.investment.advisor.controller;
+package com.investment.advisor.controller.investor;
 
 import com.investment.common.apiresponse.ApiResponse;
-import com.investment.advisor.api.InvestorProfileApi;
+import com.investment.advisor.api.investor.InvestorProfileApi;
 import com.investment.advisor.entity.InvestorProfile;
 import com.investment.advisor.mapper.InvestorProfileMapper;
-import com.investment.advisor.request.InvestorProfileDTO;
-import com.investment.advisor.service.InvestorProfileService;
+import com.investment.advisor.dto.InvestorProfileDTO;
+import com.investment.advisor.service.interfaces.InvestorProfileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;

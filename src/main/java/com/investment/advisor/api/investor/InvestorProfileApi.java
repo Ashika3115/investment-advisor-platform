@@ -1,8 +1,8 @@
-package com.investment.advisor.api;
+package com.investment.advisor.api.investor;
 
 import com.investment.common.apiresponse.ApiResponse;
 import com.investment.advisor.entity.InvestorProfile;
-import com.investment.advisor.request.InvestorProfileDTO;
+import com.investment.advisor.dto.InvestorProfileDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

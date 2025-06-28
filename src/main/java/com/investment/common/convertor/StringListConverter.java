@@ -1,4 +1,4 @@
-package com.investment.advisor;
+package com.investment.common.convertor;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;

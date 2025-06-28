@@ -1,6 +1,6 @@
 package com.investment.advisor.mapper;
 import com.investment.advisor.entity.InvestorProfile;
-import com.investment.advisor.request.InvestorProfileDTO;
+import com.investment.advisor.dto.InvestorProfileDTO;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
