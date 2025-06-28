@@ -2,16 +2,13 @@ package com.investment.advisor.entity;
 
 import com.investment.common.convertor.StringListConverter;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import lombok.*;
 
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-/**
- * ✅ Java 17 + JPA entity for storing investor profile details.
- * ✅ Will be used for risk profiling and personalized recommendation generation.
- */
 @Entity
 @Table(name = "investor_profiles")
 @Getter
@@ -30,6 +27,10 @@ public class InvestorProfile {
 
     @Column(name = "age")
     private Integer age;
+
+    @Column(name = "aadhaar_number", unique = true, nullable = false, length = 12)
+    @Pattern(regexp = "\\d{12}", message = "Aadhaar must be a 12-digit number")
+    private String aadhaarNumber;
 
     @Column(name = "income")
     private Double income;

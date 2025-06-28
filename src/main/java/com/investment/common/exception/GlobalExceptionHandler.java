@@ -1,5 +1,8 @@
 package com.investment.common.exception;
 
+import com.investment.common.apiresponse.ApiResponse;
+import com.investment.common.exception.custom.InvestorAlreadyExistsException;
+import com.investment.common.exception.custom.InvestorDetailsIncompleteException;
 import com.investment.common.exception.response.ErrorResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -192,6 +195,29 @@ public class GlobalExceptionHandler {
                 .build();
 
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+    }
+
+    /**
+     * Handle custom exception for investor already exists
+     */
+    @ExceptionHandler(InvestorAlreadyExistsException.class)
+    public ResponseEntity<ApiResponse<?>> handleInvestorExists(InvestorAlreadyExistsException ex) {
+        ApiResponse<?> response = ApiResponse.builder()
+                .status("error")
+                .message(ex.getMessage())
+                .data(null)
+                .build();
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+    }
+
+    @ExceptionHandler(InvestorDetailsIncompleteException.class)
+    public ResponseEntity<ApiResponse<?>> handleInvestorExists(InvestorDetailsIncompleteException ex) {
+        ApiResponse<?> response = ApiResponse.builder()
+                .status("error")
+                .message(ex.getMessage())
+                .data(null)
+                .build();
+        return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED).body(response);
     }
 
     /**

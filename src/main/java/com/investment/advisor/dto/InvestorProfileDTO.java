@@ -6,6 +6,7 @@ public record InvestorProfileDTO(
     Long id,
     String name,
     Integer age,
+    String aadhaarNumber,
     Double income,
     Double savings,
     String riskTolerance,

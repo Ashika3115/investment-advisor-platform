@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface InvestorProfileRepository extends JpaRepository<InvestorProfile, Long> {
 
     Optional<InvestorProfile> findByName(String name);
+
+    Optional<InvestorProfile> findByAadhaarNumber(String aadhaarNumber);
 }
