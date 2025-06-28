@@ -1,0 +1,12 @@
+Scenario-based requirement 
+I want to customise the error handling for application-based exceptions. Say I started all my container services for the application, one of which is the PostgreSQL service. Now, I create an investor, it gets stored in the Database, and I can be happy that my service is working fine. Now, I go back to my DB service and pause it for a moment. And I try to get one of my records from it. Something is working because I used to get Java-like exceptions that looked so ugly on Postman. I addressed common exceptions with GlobalExceptionHandler. So I am getting a custom exception as below response:
+
+{
+    "timestamp": "2025-06-28T10:13:25.277+00:00",
+    "status": 500,
+    "error": "Internal Server Error",
+    "message": "Could not open JPA EntityManager for transaction",
+    "path": "/api/investors/1"
+}
+
+But this is not a custom exception. This is something that GlobalExceptionHandler is designing but not handling. So I need to find the workaround to catch this exeption by going to application level and not at implementation level.
