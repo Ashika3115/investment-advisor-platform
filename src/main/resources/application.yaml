@@ -5,6 +5,56 @@ spring:
     password: mysecret
     driver-class-name: org.postgresql.Driver
 
+      # HikariCP Connection Pool Configuration
+    hikari:
+        # Connection timeout in milliseconds (20 seconds)
+        connection-timeout: 20000
+
+        # Maximum pool size
+        maximum-pool-size: 10
+
+        # Minimum idle connections
+        minimum-idle: 5
+
+        # How long a connection can remain idle (5 minutes)
+        idle-timeout: 300000
+
+        # Maximum lifetime of a connection (20 minutes)
+        max-lifetime: 1200000
+
+        # Leak detection threshold (1 minute)
+        leak-detection-threshold: 60000
+
+        # Connection validation query
+        connection-test-query: SELECT 1
+
+        # Validation timeout (5 seconds)
+        validation-timeout: 5000
+
+        # Pool name for identification
+        pool-name: InvestmentAdvisorPool
+
+        # Auto-commit behavior
+        auto-commit: true
+
+        # Connection initialization SQL
+        connection-init-sql: SELECT 1
+
+        # Initialization fail timeout (1 second)
+        initialization-fail-timeout: 1
+
+        # Additional HikariCP properties
+        data-source-properties:
+          cachePrepStmts: true
+          prepStmtCacheSize: 250
+          prepStmtCacheSqlLimit: 2048
+          useServerPrepStmts: true
+          rewriteBatchedStatements: true
+          socketTimeout: 60
+          loginTimeout: 10
+          connectTimeout: 10
+          cancelSignalTimeout: 10
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -32,4 +82,66 @@ springdoc:
     path: /v3/api-docs
   swagger-ui:
     path: /swagger-ui.html
+
+# Actuator Configuration for Health Monitoring
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,env,configprops
+      base-path: /actuator
+    enabled-by-default: true
+
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
+      probes:
+        enabled: true
+    info:
+      enabled: true
+    metrics:
+      enabled: true
+
+  health:
+    # Database health indicator
+    db:
+      enabled: true
+
+    # Disk space health indicator
+    diskspace:
+      enabled: true
+      threshold: 10MB
+
+    # Custom health indicators
+    custom:
+      enabled: true
+
+  info:
+    env:
+      enabled: true
+    git:
+      enabled: true
+      mode: full
+
+# Application Specific Configuration
+app:
+  database:
+    # Connection retry configuration
+    retry:
+      max-attempts: 3
+      delay: 1000
+      backoff-multiplier: 2
+
+    # Health check configuration
+    health-check:
+      enabled: true
+      interval: 30000
+      timeout: 5000
+
+    # Connection pool monitoring
+    monitoring:
+      enabled: true
+      metrics-enabled: true
+
 
