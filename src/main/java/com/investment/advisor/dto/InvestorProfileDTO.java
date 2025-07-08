@@ -11,5 +11,7 @@ public record InvestorProfileDTO(
     Double savings,
     String riskTolerance,
     List<String> investmentGoal,
+    String approvalStatus,
+    String subscriptionType,
     String createdAt
 ) {}

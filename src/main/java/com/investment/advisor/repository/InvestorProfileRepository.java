@@ -12,4 +12,8 @@ public interface InvestorProfileRepository extends JpaRepository<InvestorProfile
     Optional<InvestorProfile> findByName(String name);
 
     Optional<InvestorProfile> findByAadhaarNumber(String aadhaarNumber);
+
+    Optional<InvestorProfile> findByInvestorApprovalStatus(String approvalStatus);
+
+    Optional<InvestorProfile> findBySubscriptionType(String subscriptionType);
 }

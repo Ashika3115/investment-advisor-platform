@@ -12,10 +12,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * ✅ Java 17 service implementation with optional handling and clean logic.
- * ✅ Delegates database work to the repository layer.
- */
 
 @Service
 @RequiredArgsConstructor

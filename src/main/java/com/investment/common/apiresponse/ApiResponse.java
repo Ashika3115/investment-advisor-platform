@@ -1,18 +1,22 @@
 package com.investment.common.apiresponse;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.http.HttpStatus;
 
 @Data
 @Builder
-@NoArgsConstructor
+@RequiredArgsConstructor
 @AllArgsConstructor
 public class ApiResponse<T> {
 
     private String status; // "success" / "error"
     private String message;
     private T data;
+
+    public ApiResponse(String s, HttpStatus httpStatus) {
+        this.status = httpStatus.is2xxSuccessful() ? "success" : "error";
+        this.message = s;
+        this.data = null; // Default to null if no data is provided
+    }
 }
